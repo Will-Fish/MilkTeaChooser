@@ -1,0 +1,27 @@
+brand_id,brand_name,item_or_scene,source_type,source_url,license_status,notes
+chagee,霸王茶姬,伯牙绝弦,web-image-source,https://www.bawangcha.cn/news/128.html,needs-permission,搜索结果可见产品宣传图；上线前请确认可用授权
+heytea,喜茶,多肉青提系列,article-source,https://sh.sina.cn/life/mstx/2021-08-31/detail-iktzscyx1443621.d.html,needs-permission,文章含多张产品图并描述青提系列
+nayuki,奈雪的茶,霸气橙子,web-image-source,https://www.foodtalks.cn/product/8996,needs-permission,第三方产品图库页面；需核对授权
+nayuki,奈雪的茶,水蜜桃系列,article-source,https://news.tom.com/202206/4372063961.html,needs-permission,文章含水蜜桃系列产品图
+mixue,蜜雪冰城,品牌与门店,official-site,https://www.mxbc.com,needs-permission,官方站适合作为核对入口
+heytea,喜茶,品牌与产品,official-site,https://www.heytea.com,needs-permission,官方站适合作为核对入口
+nayuki,奈雪的茶,品牌与产品,official-site,https://www.pin-dao.cn/,needs-permission,官方站适合作为核对入口
+chagee,霸王茶姬,品牌与产品,official-site,https://www.chagee.com,needs-permission,官方站适合作为核对入口
+chapanda,茶百道,品牌与产品,official-site,https://www.chabaidao.com,needs-permission,官方站适合作为核对入口
+goodme,古茗,品牌与产品,official-site,https://www.gumingnc.com,needs-permission,官方站适合作为核对入口
+alittletea,一点点,品牌与产品,official-site,https://www.alittle-tea.com,needs-permission,官方站适合作为核对入口
+coco,CoCo都可,品牌与产品,official-site,https://www.coco-tea.com,needs-permission,官方站适合作为核对入口
+auntea-jenny,沪上阿姨,品牌与产品,official-site,https://www.hsay.com/,needs-permission,官方站适合作为核对入口
+shuyi,书亦烧仙草,品牌与产品,official-site,http://www.shuyisxc.com/,needs-permission,官方站适合作为核对入口
+yihetang,益禾堂,品牌与产品,official-site,https://www.yihetang.com/,needs-permission,官方站适合作为核对入口
+luckin,瑞幸咖啡,品牌与产品,official-site,https://www.lkcoffee.com/,needs-permission,官方站适合作为核对入口
+starbucks-cn,星巴克中国,菜单,official-menu,https://www.starbucks.com.cn/menu/,needs-permission,官方菜单入口
+cotti,库迪咖啡,品牌与产品,official-site,https://www.cotti.com,needs-permission,官方站适合作为核对入口
+manner,Manner咖啡,品牌与产品,official-site,https://www.mannercoffee.com/,needs-permission,官方站适合作为核对入口
+mstand,M Stand,品牌与产品,official-site,https://www.mstand.cn/,needs-permission,官方站适合作为核对入口
+seesaw,Seesaw Coffee,品牌与产品,official-site,https://www.seesawcoffee.com/,needs-permission,官方站适合作为核对入口
+tims-cn,Tims天好咖啡,品牌与产品,official-site,https://www.timhortons.com.cn/,needs-permission,官方站适合作为核对入口
+nowwa,挪瓦咖啡,品牌与产品,official-site,https://www.nowwacoffee.com/,needs-permission,官方站适合作为核对入口
+costa-cn,Costa Coffee中国,品牌与产品,official-site,https://www.costa.net.cn/,needs-permission,官方站适合作为核对入口
+pacific-coffee,太平洋咖啡,品牌与产品,official-site,https://www.pacificcoffee.com/,needs-permission,官方站适合作为核对入口
+blue-bottle-cn,蓝瓶咖啡,品牌与产品,official-site,https://bluebottlecoffee.com/,needs-permission,官方站适合作为核对入口
