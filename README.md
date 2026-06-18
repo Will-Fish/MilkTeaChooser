@@ -2,6 +2,16 @@
 
 这是网站首版可用的奶茶/咖啡品牌素材底座。
 
+## Cloudflare Pages 部署
+
+在 Cloudflare Pages 里连接 GitHub 仓库后，使用以下构建配置：
+
+- Framework preset：`Next.js (Static HTML Export)`
+- Build command：`npx next build`
+- Build output directory：`out`
+
+项目已通过 `next.config.mjs` 配置为静态导出，适合部署到 Cloudflare Pages。
+
 ## 文件
 
 - `data/brands.json`：品牌、品类、代表单品、分组 SKU、视觉关键词。
