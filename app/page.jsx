@@ -182,7 +182,12 @@ export default function Home() {
         <div className="wheel-panel">
           <div className="wheel-stage">
             <div className="pointer" aria-hidden="true" />
-            <DrinkWheel candidates={candidates} rotation={rotation} isSpinning={isSpinning} />
+            <DrinkWheel
+              candidates={candidates}
+              rotation={rotation}
+              isSpinning={isSpinning}
+              onSpin={spin}
+            />
           </div>
 
           <div className="controls">
@@ -205,32 +210,19 @@ export default function Home() {
               <span>换一批</span>
             </button>
           </div>
-        </div>
-
-        <aside className="result-panel" aria-live="polite">
-          <p className="section-kicker">当前候选池</p>
-          <div className="candidate-list">
-            {hasCandidates ? (
-              candidates.map((candidate) => (
-                <span key={candidate.id}>{candidate.name}</span>
-              ))
-            ) : (
-              <span>这个品类还没配置饮品</span>
-            )}
-          </div>
 
           <div className={`result-card ${result ? "has-result" : ""}`}>
             <small>今天喝</small>
             <strong>{result?.name || "转一下就知道"}</strong>
             {result ? <span className="result-brand">{result.brandName}</span> : null}
           </div>
-        </aside>
+        </div>
       </section>
     </main>
   );
 }
 
-function DrinkWheel({ candidates, rotation, isSpinning }) {
+function DrinkWheel({ candidates, rotation, isSpinning, onSpin }) {
   if (candidates.length === 0) {
     return (
       <div className="empty-wheel">
@@ -242,49 +234,55 @@ function DrinkWheel({ candidates, rotation, isSpinning }) {
   const segmentAngle = 360 / candidates.length;
 
   return (
-    <svg
-      className={`drink-wheel ${isSpinning ? "is-spinning" : ""}`}
-      viewBox="0 0 400 400"
-      role="img"
-      aria-label={`当前转盘候选：${candidates.map((candidate) => `${candidate.brandName} ${candidate.name}`).join("、")}`}
-      style={{
-        "--wheel-rotation": `${rotation}deg`,
-        "--wheel-label-size": candidates.length > 10 ? "11px" : "15px",
-      }}
-    >
-      <circle cx="200" cy="200" r="196" fill="#ffffff" />
-      {candidates.map((candidate, index) => {
-        const startAngle = index * segmentAngle - 90;
-        const endAngle = startAngle + segmentAngle;
-        const middleAngle = startAngle + segmentAngle / 2;
-        const labelPoint = polarToCartesian(200, 200, 118, middleAngle);
-        const textRotation = middleAngle > 90 && middleAngle < 270 ? middleAngle + 180 : middleAngle;
+    <div className="wheel-frame">
+      <svg
+        className={`drink-wheel ${isSpinning ? "is-spinning" : ""}`}
+        viewBox="0 0 400 400"
+        role="img"
+        aria-label={`当前转盘候选：${candidates.map((candidate) => `${candidate.brandName} ${candidate.name}`).join("、")}`}
+        style={{
+          "--wheel-rotation": `${rotation}deg`,
+          "--wheel-label-size": candidates.length > 10 ? "11px" : "15px",
+        }}
+      >
+        <circle cx="200" cy="200" r="196" fill="#ffffff" />
+        {candidates.map((candidate, index) => {
+          const startAngle = index * segmentAngle - 90;
+          const endAngle = startAngle + segmentAngle;
+          const middleAngle = startAngle + segmentAngle / 2;
+          const labelPoint = polarToCartesian(200, 200, 118, middleAngle);
+          const textRotation = middleAngle > 90 && middleAngle < 270 ? middleAngle + 180 : middleAngle;
 
-        return (
-          <g key={candidate.id}>
-            <path
-              d={describeArcSlice(200, 200, 186, startAngle, endAngle)}
-              fill={WHEEL_COLORS[index % WHEEL_COLORS.length]}
-            />
-            <text
-              x={labelPoint.x}
-              y={labelPoint.y}
-              transform={`rotate(${textRotation}, ${labelPoint.x}, ${labelPoint.y})`}
-              className="wheel-label"
-            >
-              {truncateLabel(candidate.name, candidates.length)}
-            </text>
-          </g>
-        );
-      })}
-      <circle cx="200" cy="200" r="58" fill="#fff8ea" stroke="#ffffff" strokeWidth="8" />
-      <text x="200" y="194" textAnchor="middle" className="wheel-center-main">
-        今日
-      </text>
-      <text x="200" y="222" textAnchor="middle" className="wheel-center-sub">
-        喝什么
-      </text>
-    </svg>
+          return (
+            <g key={candidate.id}>
+              <path
+                d={describeArcSlice(200, 200, 186, startAngle, endAngle)}
+                fill={WHEEL_COLORS[index % WHEEL_COLORS.length]}
+              />
+              <text
+                x={labelPoint.x}
+                y={labelPoint.y}
+                transform={`rotate(${textRotation}, ${labelPoint.x}, ${labelPoint.y})`}
+                className="wheel-label"
+              >
+                {truncateLabel(candidate.name, candidates.length)}
+              </text>
+            </g>
+          );
+        })}
+        <circle cx="200" cy="200" r="58" fill="#fff8ea" stroke="#ffffff" strokeWidth="8" />
+      </svg>
+      <button
+        className="wheel-center-button"
+        type="button"
+        onClick={onSpin}
+        disabled={isSpinning || candidates.length === 0}
+        aria-label={isSpinning ? "转盘转动中" : "转动转盘"}
+      >
+        <span>今日</span>
+        <strong>喝什么</strong>
+      </button>
+    </div>
   );
 }
 
